@@ -1,4 +1,4 @@
-# RepTrack Mom
+# RepTrack
 
 A separate, no-sign-in, offline full-body workout app. Choose today's exercises from 27 illustrated movements, then start one workout. There are no splits or workout rotations.
 
@@ -11,7 +11,7 @@ A separate, no-sign-in, offline full-body workout app. Choose today's exercises 
 - Open Settings to customize exercises, choose units/rest timing, and export or restore JSON backups.
 - Install in Safari using Share → Add to Home Screen. Open online once before using offline.
 
-The database (`reptrack-mom`), backup identity (`RepTrack Mom`), and PWA scope are independent from the original RepTrack. All data remains on the device. Export backups regularly.
+The database (`reptrack-mom`), backup identity (`RepTrack Mom`, an internal isolation marker), and PWA scope are independent from the original RepTrack. All data remains on the device. Export backups regularly.
 
 Exercise names retain the supplied Danish wording. See ASSETS.md for illustrations and the interpretation of Rumænsk splitsquat.
 

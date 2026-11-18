@@ -1,4 +1,4 @@
-name: Deploy RepTrack Mom to GitHub Pages
+name: Deploy RepTrack to GitHub Pages
 
 on:
   push:

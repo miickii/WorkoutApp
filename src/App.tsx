@@ -65,7 +65,7 @@ export default function App() {
       <main className="loading">
         <Dumbbell size={36} />
         <h1>
-          RepTrack Mom<span>®</span>
+          RepTrack<span>®</span>
         </h1>
         <p>{error || "Getting your training ready…"}</p>
         {error && <button onClick={() => location.reload()}>Try again</button>}
@@ -150,7 +150,7 @@ export default function App() {
           <span className="brand-mark">
             <Dumbbell size={22} />
           </span>
-          RepTrack Mom<span className="brand-dot">.</span>
+          RepTrack<span className="brand-dot">.</span>
         </a>
         <div className="sidebar-label">YOUR TRAINING SPACE</div>
         <nav>
@@ -193,7 +193,7 @@ export default function App() {
         <div className="topbar">
           <span className="mobile-brand">
             <Dumbbell size={18} />
-            RepTrack Mom<span className="brand-dot">.</span>
+            RepTrack<span className="brand-dot">.</span>
           </span>
           <span className="desktop-date">
             {new Date().toLocaleDateString(undefined, {

@@ -20,8 +20,8 @@ export default defineConfig(({ mode }) => {
           "apple-touch-icon.png",
         ],
         manifest: {
-          name: "RepTrack Mom",
-          short_name: "RepTrack Mom",
+          name: "RepTrack",
+          short_name: "RepTrack",
           description: "Your training. One set at a time.",
           theme_color: "#101411",
           background_color: "#101411",

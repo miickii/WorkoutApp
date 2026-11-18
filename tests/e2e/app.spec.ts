@@ -102,6 +102,6 @@ test("no split settings, isolated backup and scoped installation", async ({
   const manifest = await (
     await page.request.get(new URL(href!, baseURL!).href)
   ).json();
-  expect(manifest.name).toBe("RepTrack Mom");
+  expect(manifest.name).toBe("RepTrack");
   expect(manifest.scope).toBe(new URL(baseURL!).pathname);
 });

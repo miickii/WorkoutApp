@@ -258,7 +258,7 @@ export function Settings({
             <p className="eyebrow">MADE FOR YOUR IPHONE</p>
             <h2>Your gym companion.</h2>
             <p>
-              Open RepTrack Mom in Safari. Tap Share, then{" "}
+              Open RepTrack in Safari. Tap Share, then{" "}
               <strong>Add to Home Screen</strong>.
             </p>
             <div className="backup-status">
@@ -330,7 +330,7 @@ export function Settings({
           </button>
         </form>
       </section>
-      <p className="app-version">REPTRACK MOM 1.0 · BUILT FOR THE LONG RUN</p>
+      <p className="app-version">REPTRACK 1.0 · BUILT FOR THE LONG RUN</p>
     </>
   );
 }
