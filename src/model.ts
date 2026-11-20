@@ -111,17 +111,38 @@ export const rotation = [
   "pull",
   "legs",
 ];
-export function newSet(e: Exercise): SetLog {
+// Use the latest completed workout in which this exercise was actually logged.
+// Match working-set positions so warm-ups and unfinished sets do not shift reps.
+export function previousReps(
+  exerciseId: string,
+  sessions: Session[],
+): (number | undefined)[] {
+  const previous = [...sessions]
+    .filter((s) => s.finishedAt)
+    .sort((a, b) => b.startedAt.localeCompare(a.startedAt))
+    .flatMap((s) => s.exercises.filter((e) => e.exerciseId === exerciseId))
+    .find((e) => !e.skipped && e.sets.some((set) => set.done && !set.warmup));
+  return (
+    previous?.sets
+      .filter((set) => !set.warmup)
+      .map((set) => (set.done ? set.reps : undefined)) ?? []
+  );
+}
+export function newSet(e: Exercise, reps = e.max): SetLog {
   return {
     id: uid(),
     weight: e.weight,
-    reps: e.max,
+    reps,
     done: false,
     warmup: false,
     issue: false,
   };
 }
-export function newSession(t: Template, exercises: Exercise[]): Session {
+export function newSession(
+  t: Template,
+  exercises: Exercise[],
+  sessions: Session[] = [],
+): Session {
   const items = t.exerciseIds
     .map((id) => exercises.find((e) => e.id === id))
     .filter((e): e is Exercise => !!e)
@@ -130,7 +151,9 @@ export function newSession(t: Template, exercises: Exercise[]): Session {
       exerciseId: e.id,
       name: e.name,
       target: { sets: e.sets, min: e.min, max: e.max, weight: e.weight },
-      sets: Array.from({ length: e.sets }, () => newSet(e)),
+      sets: Array.from({ length: e.sets }, (_, i) =>
+        newSet(e, previousReps(e.id, sessions)[i]),
+      ),
       skipped: false,
     }));
   return {

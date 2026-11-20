@@ -91,7 +91,7 @@ export default function App() {
       exerciseIds: ids,
       updatedAt: now(),
     };
-    const workout = newSession(template, state!.exercises);
+    const workout = newSession(template, state!.exercises, state!.sessions);
     if (
       await change((s) => {
         if (s.sessions.some((w) => !w.finishedAt))

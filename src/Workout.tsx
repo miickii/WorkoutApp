@@ -21,6 +21,7 @@ import {
   ready,
   nextWeight,
   newSet,
+  previousReps,
   now,
   displayWeight,
   toKg,
@@ -608,7 +609,9 @@ export function Workout({
                         max: e.max,
                         weight: e.weight,
                       },
-                      sets: Array.from({ length: e.sets }, () => newSet(e)),
+                      sets: Array.from({ length: e.sets }, (_, i) =>
+                        newSet(e, previousReps(e.id, state.sessions)[i]),
+                      ),
                       skipped: false,
                     });
                   })
